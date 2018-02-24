@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crystal Collector</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+</head>
+<body>
+    <!--header-->
+    <h1>CrystalsCollector!</h1>
+
+        <div class="container">
+
+                <div class="row">
+                         <!-- Instructiions -->
+                  <div class="col-lg-4 instruct">
+                        You will be given a random number at the start of the game. <br>
+                        There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. <br>
+                        You win the game by matching your total score to the random number.<br>
+                        The value of each crystal is hidden from you until you click on it.<br>
+                        Each time when the game starts, the game will change the values of each crystal. <br>
+
+                        </div>
+
+
+                </div>
+
+                <div class="row">
+                    <!--Box for original random number-->
+                <div class="col-lg-5 box random">
+                    Random Number:
+                </div>
+
+                <div class="col-lg-5 box score">
+                    Wins:    Losses:
+                </div>
+
+                </div>
+                <!--Button to generate random number to start-->
+                <div class="row">
+                    <button id="generate" class="col-lg-3 box"> Start Game </button>
+
+
+
+
+                </div>
+                <!--Picture-->
+                <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                          <a href="#" class="thumbnail">
+                            <img value="" class="crystals" src="assets/images/bluecrystal.jpg" alt="bluecrystal">
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                                <a href="#" class="thumbnail">
+                                  <img value="" class="crystals" src="assets/images/bunchofbluecrystals.jpg" alt="Lotsofcrystals">
+                                </a>
+                              </div>
+                              <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                      <img value="" class="crystals" src="assets/images/clearcrystal.jpg" alt="clearcrystal">
+                                    </a>
+                                  </div>
+                                  <div class="col-xs-6 col-md-3">
+                                        <a href="#" class="thumbnail">
+                                          <img value="" class="crystals" src="assets/images/redcrystal.jpg" alt="redcrystal">
+                                        </a>
+                                      </div>
+                    
+                      </div>
+
+                      <div class="row">
+                          <!--Total result of the points-->
+                          <div class="col-lg-5 box result">
+                                Your total score is:
+                      </div>
+
+                      
+</div>
+                        <!--JQUERY-->
+
+                    <script>
+
+                        $(document).ready(function() {
+
+                    // When random-button is clicked...
+                            $("#generate").on("click", function() {
+
+                    // ... we generate a random number
+                            var random = Math.floor(Math.random() * 400) + 100;
+
+                     // ... and then dump the random number into our random-number div.
+                            $("#generate").text(random);
+
+      });
+
+
+                        // When random-button is clicked...
+                        $(".crystals").on("click", function() {
+
+                        // ... we generate a random number
+                           var random2 = Math.floor(Math.random() * 5) + 60;
+
+                        // ... and then dump the random number into our random-number div.
+                         $(".crystals").val(random2);
+
+});
+
+    });
+
+
+
+
+
+
+
+                        
+                                          
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                             
+    </script>
+    </body>
+    </html>
+    
+            
