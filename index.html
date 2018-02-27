@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Crystal Collector</title>
@@ -16,128 +17,208 @@
         crossorigin="anonymous">
 
 </head>
+
 <body>
     <!--header-->
     <h1>CrystalsCollector!</h1>
 
-        <div class="container">
+    <div class="container">
 
-                <div class="row">
-                         <!-- Instructiions -->
-                  <div class="col-lg-4 instruct">
-                        You will be given a random number at the start of the game. <br>
-                        There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. <br>
-                        You win the game by matching your total score to the random number.<br>
-                        The value of each crystal is hidden from you until you click on it.<br>
-                        Each time when the game starts, the game will change the values of each crystal. <br>
+        <div class="row">
+            <!-- Instructiions -->
+            <div class="col-lg-4 instruct">
+                You will be given a random number at the start of the game.
+                <br> There are four crystals below. By clicking on a crystal you will add a specific amount of points to your
+                total score.
+                <br> You win the game by matching your total score to the random number.
+                <br> The value of each crystal is hidden from you until you click on it.
+                <br> Each time when the game starts, the game will change the values of each crystal.
+                <br>
 
-                        </div>
-
-
-                </div>
-
-                <div class="row">
-                    <!--Box for original random number-->
-                <div class="col-lg-5 box random">
-                    Random Number:
-                </div>
-
-                <div class="col-lg-5 box score">
-                    Wins:    Losses:
-                </div>
-
-                </div>
-                <!--Button to generate random number to start-->
-                <div class="row">
-                    <button id="generate" class="col-lg-3 box"> Start Game </button>
+            </div>
 
 
+        </div>
+
+        <div class="row">
+            <!--Box for original random number-->
+            <div class="col-lg-4 box random">
+                Number Counter:
+            </div>
+
+            <div value="0" class="col-lg-4 box win">
+                Wins:
+            </div>
+
+            <div value="0" class="col-lg-4 box lose">
+                Losses:
+            </div>
+
+        </div>
+        <!--Button to generate random number to start-->
+        <div class="row">
+            <button id="generate" class="col-lg-3 box"> Start Game </button>
 
 
-                </div>
-                <!--Picture-->
-                <div class="row">
-                        <div class="col-xs-6 col-md-3">
-                          <a href="#" class="thumbnail">
-                            <img value="" class="crystals" src="assets/images/bluecrystal.jpg" alt="bluecrystal">
-                          </a>
-                        </div>
-                        <div class="col-xs-6 col-md-3">
-                                <a href="#" class="thumbnail">
-                                  <img value="" class="crystals" src="assets/images/bunchofbluecrystals.jpg" alt="Lotsofcrystals">
-                                </a>
-                              </div>
-                              <div class="col-xs-6 col-md-3">
-                                    <a href="#" class="thumbnail">
-                                      <img value="" class="crystals" src="assets/images/clearcrystal.jpg" alt="clearcrystal">
-                                    </a>
-                                  </div>
-                                  <div class="col-xs-6 col-md-3">
-                                        <a href="#" class="thumbnail">
-                                          <img value="" class="crystals" src="assets/images/redcrystal.jpg" alt="redcrystal">
-                                        </a>
-                                      </div>
-                    
-                      </div>
-
-                      <div class="row">
-                          <!--Total result of the points-->
-                          <div class="col-lg-5 box result">
-                                Your total score is:
-                      </div>
-
-                      
-</div>
-                        <!--JQUERY-->
-
-                    <script>
-
-                        $(document).ready(function() {
-
-                    // When random-button is clicked...
-                            $("#generate").on("click", function() {
-
-                    // ... we generate a random number
-                            var random = Math.floor(Math.random() * 400) + 100;
-
-                     // ... and then dump the random number into our random-number div.
-                            $("#generate").text(random);
-
-      });
 
 
-                        // When random-button is clicked...
-                        $(".crystals").on("click", function() {
+        </div>
+        <!--Picture-->
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img value="1" class="crystals" src="assets/images/bluecrystal.jpg" alt="bluecrystal">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img value="5" class="crystals" src="assets/images/bunchofbluecrystals.jpg" alt="Lotsofcrystals">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img value="10" class="crystals" src="assets/images/clearcrystal.jpg" alt="clearcrystal">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img value="20" class="crystals" src="assets/images/redcrystal.jpg" alt="redcrystal">
+                </a>
+            </div>
 
-                        // ... we generate a random number
-                           var random2 = Math.floor(Math.random() * 5) + 60;
+        </div>
 
-                        // ... and then dump the random number into our random-number div.
-                         $(".crystals").val(random2);
-
-});
-
-    });
+        <div class="row">
+            <!--Total result of the points-->
+            <div class="col-lg-5 box result">
+                Your total score is:
+            </div>
 
 
+        </div>
+        <!--JQUERY-->
+
+        <script>
+
+            $(document).ready(function () {
+                var value = 0;
+                var numberChosen = false;
+                var targetNumber = Math.floor(Math.random() * 100) + 10;
+                var Win = 0;
+                var Lose = 0;
+
+                // Reset Function
+
+
+                function initializefunction() {
+
+                    targetNumber = Math.floor(Math.random() * 100) + 10;
+
+
+                    $("#generate").text(targetNumber);
+
+                    value = 0;
+
+                    $(".random").html(value);
 
 
 
 
 
-                        
-                                          
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                             
-    </script>
-    </body>
-    </html>
-    
-            
+
+                }
+
+
+                // When id genereate button is clicked...
+                $("#generate").on("click", function () {
+
+
+                    // ... and then dump the random number into our div.
+                    $("#generate").text(targetNumber);
+
+                });
+
+                // When crystal image is clicked
+
+                $(".crystals").on("click", function () {
+
+                    // Set value to crystals value in HTML 
+                    var htmlValue = $(this).attr("value");
+
+                    var valueAsInt = parseInt(htmlValue);
+                    value += valueAsInt;
+
+                    $(".random").text(value);
+
+
+                    var beforeWin = $(".win").attr("value");
+                    var winValue = parseInt(Win);
+                    beforeWin + Win === winValue;
+
+                    var beforeLoss = $(".lose").attr("value");
+                    var lossValue = parseInt(Lose);
+                    beforeLoss + Lose === lossValue;
+
+                    if (value === targetNumber) {
+                        Win++;
+                        $(".win").text(Win)
+                        alert("You Win!");
+                        initializefunction();
+
+                    } else if (value > targetNumber) {
+                        Lose++;
+                        alert('You lose');
+                        $(".lose").text("Losses : " + lossValue);
+                        initializefunction();
+                    }
+
+
+
+
+
+
+
+                });
+
+
+
+
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>
